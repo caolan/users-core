@@ -28,6 +28,7 @@
         "md5": null,
         "bootstrap-less": "2.0.1-kanso.1",
         "datelib": null,
-        "sanitize": null
+        "sanitize": null,
+        "settings": null
     }
 }

@@ -1,7 +1,8 @@
 var db = require('db'),
     gravatar = require('gravatar'),
     datelib = require('datelib'),
-    app = require('./app');
+    app = require('./app'),
+    cfg = require('settings/root');
 
 
 exports.getProfileDB = function () {
@@ -31,7 +32,7 @@ exports.getAll = function (q, callback) {
         callback = q;
         q = {};
     }
-    exports.getProfileDB().getView('users-app', 'profiles', q, callback);
+    exports.getProfileDB().getView(cfg.name, 'profiles', q, callback);
 };
 
 exports.get = function (id, callback) {
