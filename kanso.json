@@ -1,0 +1,33 @@
+{
+    "name": "users-core",
+    "version": "0.0.1",
+    "description": "Public user profile management for CouchDB",
+    "attachments": [
+        "js",
+        "css"
+    ],
+    "load": "ddoc/ddoc",
+    "modules": [
+        "ui",
+        "ddoc"
+    ],
+    "handlebars": {
+        "templates": "templates"
+    },
+    "dependencies": {
+        "async": null,
+        "properties": null,
+        "attachments": null,
+        "modules": null,
+        "handlebars": null,
+        "handlebars-helpers": null,
+        "gravatar": null,
+        "session": null,
+        "users": ">= 0.0.13",
+        "db": null,
+        "md5": null,
+        "bootstrap-less": "2.0.1-kanso.1",
+        "datelib": null,
+        "sanitize": null
+    }
+}

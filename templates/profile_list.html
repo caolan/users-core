@@ -1,0 +1,17 @@
+{{#each rows}}
+<li class="profile" title="{{doc.bio}}" rel="{{key}}">
+  <a class="avatar" href="#/view/{{uc id}}">
+    <img class="avatar" src="{{gravatar_url}}" />
+  </a>
+  <div class="details">
+    <a class="name" href="#/view/{{uc id}}">
+      {{id}}
+    </a>
+    {{#if doc.full_name}}
+      <p>
+        {{doc.full_name}}
+      </p>
+    {{/if}}
+  </div>
+</li>
+{{/each}}

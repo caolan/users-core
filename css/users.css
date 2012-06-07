@@ -1,0 +1,89 @@
+.center-form form {
+    margin-bottom: 0;
+}
+
+.center-form {
+    margin: 6em auto 0 auto;
+    display: block;
+    width: 560px;
+    border: 20px solid white;
+    background: white;
+}
+
+.center-form .form-actions {
+    margin-bottom: 0;
+}
+
+.page {
+    padding-top: 2em;
+}
+
+.profile-table th {
+    min-width: 128px;
+}
+.profile-table td {
+    width: 100%;
+}
+.profile-table td .edit-link {
+    margin-left: 1em;
+}
+.profile-table .empty {
+    color: #999;
+}
+.update-photo {
+    width: 100%;
+    margin-top: 4px;
+    max-width: 128px;
+}
+.update-photo .btn {
+    display: block;
+}
+.profile-table .field-editor {
+    display: none;
+    margin-bottom: 0px;
+}
+.profile-table td .value {
+    display: inline;
+}
+.profile-table .field-editor .control-group {
+    margin-bottom: 0;
+}
+.profile-table .field-editor textarea {
+    min-height: 150px;
+}
+
+#profilelist {
+    margin: 1.618em 0;
+    padding: 0;
+    list-style-type: none;
+}
+li.profile {
+    margin: 0 0 16px 0;
+    padding: 0;
+    list-style-type: none;
+    min-height: 48px;
+}
+li.profile .avatar {
+    float: left;
+    width: 48px;
+    height: 48px;
+}
+li.profile .details {
+    padding-left: 64px;
+}
+li.profile .name {
+    font-weight: bold;
+}
+#profilelist-nav .prev-link {
+    margin-right: 1em;
+}
+#profilelist-nav .next-link {
+    margin-left: 1em;
+}
+#profilelist-nav .disabled {
+    color: #999;
+    cursor: default;
+}
+#profilelist-nav .disabled:hover {
+    text-decoration: none;
+}

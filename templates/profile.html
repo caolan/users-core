@@ -1,0 +1,189 @@
+<div class="container page">
+  <div class="row">
+    <div class="span2">
+
+      <img class="avatar" src="{{gravatar_url}}" />
+      {{#if isCurrentUser}}
+      <div class="update-photo">
+        <a class="btn" href="https://en.gravatar.com/site/login">Update photo</a>
+      </div>
+      {{/if}}
+
+    </div>
+    <div class="span10">
+
+    <h1>{{profile.name}}</h1>
+
+    <table style="margin-top: 1em" class="table table-striped profile-table">
+      <tbody>
+        {{#if isCurrentUser}}
+        <tr>
+          <th>Email</th>
+          <td data-doc="user" data-property="email" title="This will not be made public">
+            <i class="icon-lock"></i>
+            {{#if userDoc.email}}
+            <div class="value">
+              {{userDoc.email}}
+            </div>
+            {{else}}
+            <div class="value empty">
+              Empty
+            </div>
+            {{/if}}
+            <a href="#" class="edit-link">Edit</a>
+            <form class="form-inline field-editor">
+              <div class="control-group">
+                <input class="field-editor-value" type="text" />
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-cancel">Cancel</button>
+                <span class="help-inline"></span>
+              </div>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th>Password</th>
+          <td data-doc="user" data-property="password" title="This will not be made public">
+            <i class="icon-lock"></i>
+            <div class="value empty">
+              (Hidden)
+            </div>
+            <a href="#" class="edit-link">Edit</a>
+            <form class="form-inline field-editor">
+              <div class="control-group">
+                <input class="field-editor-value" type="password" />
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-cancel">Cancel</button>
+                <span class="help-inline"></span>
+              </div>
+            </form>
+          </td>
+        </tr>
+        {{/if}}
+        <tr>
+          <th>Full Name</th>
+          <td data-doc="profile" data-property="full_name">
+            {{#if profile.full_name}}
+              <div class="value"> {{profile.full_name}} </div>
+            {{else}}
+              <div class="empty value"> Empty </div>
+            {{/if}}
+            {{#if isCurrentUser}}
+              <a href="#" class="edit-link">Edit</a>
+              <form class="form-inline field-editor">
+                <div class="control-group">
+                  <input class="field-editor-value" type="text" />
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-cancel">Cancel</button>
+                  <span class="help-inline"></span>
+                </div>
+              </form>
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td data-doc="profile" data-property="location">
+            {{#if profile.location}}
+              <div class="value"> {{profile.location}} </div>
+            {{else}}
+              <div class="empty value"> Empty </div>
+            {{/if}}
+            {{#if isCurrentUser}}
+              <a href="#" class="edit-link">Edit</a>
+              <form class="form-inline field-editor">
+                <div class="control-group">
+                  <input class="field-editor-value" type="text" />
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-cancel">Cancel</button>
+                  <span class="help-inline"></span>
+                </div>
+              </form>
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Joined</th>
+          {{#if pp_joined}}
+            <td>
+              {{pp_joined}}
+            </td>
+          {{else}}
+            <td class="empty">
+              Empty
+            </td>
+          {{/if}}
+        </tr>
+        <tr>
+          <th>Website</th>
+          <td data-doc="profile" data-property="website">
+            {{#if profile.website}}
+              <div class="value">
+                <a href="{{profile.website}}">{{profile.website}}</a>
+              </div>
+            {{else}}
+              <div class="empty value"> Empty </div>
+            {{/if}}
+            {{#if isCurrentUser}}
+              <a href="#" class="edit-link">Edit</a>
+              <form class="form-inline field-editor">
+                <div class="control-group">
+                  <input class="field-editor-value" type="text" />
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-cancel">Cancel</button>
+                  <span class="help-inline"></span>
+                </div>
+              </form>
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Twitter</th>
+          <td data-doc="profile" data-property="twitter">
+            {{#if profile.twitter}}
+              <div class="value">
+                <a href="http://twitter.com/{{profile.twitter}}">@{{profile.twitter}}</a>
+              </div>
+            {{else}}
+              <div class="empty value"> Empty </div>
+            {{/if}}
+            {{#if isCurrentUser}}
+              <a href="#" class="edit-link">Edit</a>
+              <form class="form-inline field-editor">
+                <div class="control-group">
+                  <input class="field-editor-value" type="text" />
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-cancel">Cancel</button>
+                  <span class="help-inline"></span>
+                </div>
+              </form>
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Bio</th>
+          <td data-doc="profile" data-property="bio">
+            {{#if profile.bio}}
+              <div class="value"> {{profile.bio}} </div>
+            {{else}}
+              <div class="empty value"> Empty </div>
+            {{/if}}
+            {{#if isCurrentUser}}
+              <a href="#" class="edit-link">Edit</a>
+              <form class="form-inline field-editor">
+                <div class="control-group">
+                  <textarea class="span4 field-editor-value"></textarea>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" class="btn btn-cancel">Cancel</button>
+                  <span class="help-inline"></span>
+                </div>
+              </form>
+            {{/if}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+</div>
