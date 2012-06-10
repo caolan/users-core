@@ -1,7 +1,16 @@
 <div class="container page">
   <h1>Users</h1>
-  <ul id="profilelist"></ul>
-  <div id="profilelist-nav">
+  <form id="user-search-form" style="margin-top: 1em" class="form-inline hide">
+    <div class="control-group">
+      <div class="input-append">
+        <input id="user-search-q" type="text" placeholder="Search" />
+        <button id="user-search-submit" type="submit" class="btn">Go</button>
+        <span class="help-inline"></span>
+      </div>
+    </div>
+  </form>
+  <ul id="profile-list"></ul>
+  <div id="profile-list-nav">
     <a href="#" class="prev-link disabled">&larr; Previous</a>
     Showing
     <strong>

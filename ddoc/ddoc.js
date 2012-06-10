@@ -15,7 +15,7 @@ exports.views = {
 
 exports.validate_doc_update = function (newDoc, oldDoc, userCtx) {
     if ((oldDoc && oldDoc.type === 'profile') || newDoc.type === 'profile') {
-        for (var i = 0; i < userCtx.roles.lenth; i++) {
+        for (var i = 0; i < userCtx.roles.length; i++) {
             if (userCtx.roles[i] === '_admin') {
                 // _admin users can do anything
                 return;
@@ -42,6 +42,27 @@ exports.validate_doc_update = function (newDoc, oldDoc, userCtx) {
             // create
             if (userCtx.name !== newDoc.name) {
                 throw {unauthorized: 'profile.name must match your username'};
+            }
+        }
+    }
+};
+
+exports.fulltext = {
+    profiles: {
+        index: function (doc) {
+            if (doc.type === 'profile') {
+                var ret = new Document();
+
+                ret.add(doc.name, {boost: 2.0});
+                ret.add(doc.full_name, {boost: 2.0});
+
+                ret.add(doc.location, {field: 'location'});
+                ret.add(new Date(doc.joined), {type: 'Date', field: 'joined'});
+                ret.add(doc.website, {field: 'website'});
+                ret.add(doc.twitter, {field: 'twitter'});
+                ret.add(doc.bio, {field: 'bio'});
+
+                return ret;
             }
         }
     }

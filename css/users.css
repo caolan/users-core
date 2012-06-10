@@ -52,7 +52,7 @@
     min-height: 150px;
 }
 
-#profilelist {
+#profile-list {
     margin: 1.618em 0;
     padding: 0;
     list-style-type: none;
@@ -74,16 +74,16 @@ li.profile .details {
 li.profile .name {
     font-weight: bold;
 }
-#profilelist-nav .prev-link {
+#profile-list-nav .prev-link {
     margin-right: 1em;
 }
-#profilelist-nav .next-link {
+#profile-list-nav .next-link {
     margin-left: 1em;
 }
-#profilelist-nav .disabled {
+#profile-list-nav .disabled {
     color: #999;
     cursor: default;
 }
-#profilelist-nav .disabled:hover {
+#profile-list-nav .disabled:hover {
     text-decoration: none;
 }

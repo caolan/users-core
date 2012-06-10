@@ -1,9 +1,4 @@
-exports.dburl = null;
-
 exports.init = function (url) {
-    if (url) {
-        exports.dburl = url;
-    }
     $.dispatch({
         '':         require('./views/home'),
         '/':        require('./views/home'),
