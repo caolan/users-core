@@ -102,7 +102,7 @@ module.exports = function () {
                 }
                 return;
             }
-            window.location = '#/view/' + encodeURIComponent(username);
+            window.location = '#/profile/' + encodeURIComponent(username);
         });
 
         return false;

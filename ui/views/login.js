@@ -108,13 +108,13 @@ function checkProfile(username, next, callback) {
                         }
                         return callback(
                             null,
-                            '#/view/' + encodeURIComponent(username)
+                            '#/profile/' + encodeURIComponent(username)
                         );
                     });
                 });
                 return;
             }
         }
-        return callback(null, next || '#/view/' + encodeURIComponent(username));
+        return callback(null, next || '#/profile/' + encodeURIComponent(username));
     });
 }

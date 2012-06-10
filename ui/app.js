@@ -5,7 +5,7 @@ exports.init = function (url) {
         '/signup':  require('./views/signup'),
         '/login':   require('./views/login'),
         '/login/:next':   require('./views/login'),
-        '/view/:id':   require('./views/profile')
+        '/profile/:id':   require('./views/profile')
     });
     $(window).trigger('hashchange');
 };
