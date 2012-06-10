@@ -5,7 +5,7 @@ var templates = require('handlebars').templates,
 
 
 // max number of profiles to list on page
-var PAGE_LENGTH = 2;
+var PAGE_LENGTH = 5;
 
 module.exports = function () {
     $('#content').html(
