@@ -43,7 +43,7 @@ module.exports = function (id) {
                     gravatar_url: gravatar.avatarURL({
                         hash: profileDoc.gravatar || 'default',
                         size: 128,
-                        default_image: 'identicon',
+                        default_image: 'identicon'
                     })
                 })
             );
