@@ -4,32 +4,58 @@ var templates = require('handlebars').templates,
     cfg = require('settings/root');
 
 
-// max number of profiles to list on page
-var PAGE_LENGTH = 5;
+var PAGE_LENGTH = 5,     // max number of profiles to list on page
+    prev_search = null;  // to stop queries for the same results
 
-module.exports = function () {
-    $('#content').html(
-        templates['home.html']({})
-    );
-    if (cfg.profiles && cfg.profiles.lucene) {
-        $('#user-search-form').show();
-        $('#user-search-form').submit(function (ev) {
-            ev.preventDefault();
-            var q = $('#user-search-q', this).val();
-            searchProfiles(q);
-            return false;
-        });$
-        $('#user-search-q').keyup($.debounce(500, function () {
-            var q = $(this).val();
-            searchProfiles(q);
-        }));
-        $('#user-search-q').focus();
+// set to true when updating the page inline but changing the url
+// for back button / bookmarking support
+var ignore_next_hashchange = false;
+
+
+module.exports = function (q) {
+    if (ignore_next_hashchange) {
+        // already showing home page, it will have updated inline
+        // without redrawing. do nothing on hash change.
+        ignore_next_hashchange = false;
     }
-    getProfiles();
+    else {
+        $('#content').html(
+            templates['home.html']({})
+        );
+        if (cfg.profiles && cfg.profiles.lucene) {
+            $('#user-search-form').show();
+            $('#user-search-form').submit(function (ev) {
+                ev.preventDefault();
+                var q = $('#user-search-q', this).val();
+                searchProfiles(q);
+                return false;
+            });$
+            $('#user-search-q').keyup($.debounce(500, function () {
+                var q = $(this).val();
+                if (q !== prev_search) {
+                    searchProfiles(q);
+                }
+                prev_search = q;
+            }));
+            $('#user-search-q').focus();
+        }
+        if (q) {
+            var q = decodeURIComponent(q);
+            $('#user-search-q').val(q);
+            searchProfiles(q);
+        }
+        else {
+            getProfiles();
+        }
+    }
 };
 
 
 function getProfiles(start_key, descending) {
+    if (window.location.hash !== '#/') {
+        ignore_next_hashchange = true;
+        window.location = '#/';
+    }
     $('#user-search-form .control-group').removeClass('error');
     $('#user-search-form .help-inline').text('');
     $('#user-search-submit').button('loading');
@@ -59,6 +85,11 @@ function getProfiles(start_key, descending) {
 function searchProfiles(q, skip) {
     if (!q) {
         return getProfiles();
+    }
+    var newurl = '#/search/' + encodeURIComponent(q);
+    if (window.location.hash !== newurl) {
+        ignore_next_hashchange = true;
+        window.location = newurl;
     }
     $('#user-search-form .control-group').removeClass('error');
     $('#user-search-form .help-inline').text('');
