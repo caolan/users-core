@@ -7,6 +7,28 @@ exports.init = function (url) {
         '/login/*':   require('./views/login'),
         '/profile/*': require('./views/profile')
     });
+    router.configure({
+        on: function () {
+            if (typeof _gaq !== 'undefined') {
+                // report page view to google analytics
+                _gaq.push([
+                    '_trackPageview',
+                    location.pathname + location.search  + location.hash
+                ]);
+            }
+        }
+    });
+    router.configure({
+        on: function () {
+            if (typeof _gaq !== 'undefined') {
+                // report page view to google analytics
+                _gaq.push([
+                    '_trackPageview',
+                    location.pathname + location.search  + location.hash
+                ]);
+            }
+        }
+    });
     router.init();
     if (!window.location.hash || window.location.hash === '#') {
         window.location = '#/';
